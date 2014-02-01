@@ -1,0 +1,24 @@
+body {
+	font-family: 'Helvetica Neue';
+	font-size: 14px;
+}
+
+input[type="text"] {
+	width: 500px;
+}
+
+input {
+	padding: 8px;
+}
+
+[data-state="pending"] {
+	background: #FFF9A1;
+}
+
+[data-state="complete"] {
+	background: #BBFFA1;
+}
+
+[data-state="error"] {
+	background: #FFA1A1;
+}

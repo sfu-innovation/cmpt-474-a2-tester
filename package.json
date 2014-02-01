@@ -1,0 +1,13 @@
+{
+	"name": "sherp",
+	"version": "0.0.1",
+	"dependencies": {
+		"express": ">=3.0.0",
+		"socket.io": ">=0.0.1",
+		"redis": ">=0.0.1",
+		"async": ">=0.0.1",
+		"jade": ">=0.0.1",
+		"connect-redis": ">=0.0.1",
+		"xtend": ">=0.0.1"
+	}
+}
