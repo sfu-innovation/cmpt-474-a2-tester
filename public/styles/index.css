@@ -37,6 +37,12 @@ form {
 	list-style: none;
 }
 
+/*
+.job {
+	display: flex;
+}
+*/
+
 .job[data-state='cancelled'] {
 	background: #f0f0f0;
 }

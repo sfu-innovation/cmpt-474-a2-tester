@@ -227,7 +227,6 @@ jobs.on('job state', function(id) {
 		sockets(job.data.user).emit('job progress', job, progress);	
 	});
 }).on('job log', function(id, log) {
-	console.log('job log '+arguments)
 	load(id, function(err, job) {
 		if (err) return;
 		sockets(job.data.user).emit('job log', job, log);	
