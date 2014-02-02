@@ -215,7 +215,7 @@ jobs.on('job state', function(id) {
 			redis.sadd('user:'+job.data.user+':jobs', job.id);
 			break;
 		case 'complete':
-			redis.hset('user:'+job.data.user+'results', job.data.part, 'true');
+			redis.hset('user:'+job.data.user+':results', job.data.part, 'true');
 			break;
 		}
 		sockets(job.data.user).emit('job state', job);	
