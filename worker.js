@@ -345,7 +345,7 @@ jobs.process('profile', 3, function(job, done) {
 		job.log('Completed run for '+part+'.');
 		if (err) job.log('error: '+util.inspect(err));
 		console.log('Done job #'+job.id+'.');
-		done(util.inspect(err));
+		done(err ? util.inspect(err) : undefined);
 	});
 });
 
