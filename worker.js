@@ -78,7 +78,7 @@ var runs = {
 					//Ignore the first 3 chunks to give the queue time to pile up
 					if (i < 3) return next(undefined, false);
 					var s = stats(batch);
-					if ((Math.abs(s.mean - baseline.mean) <= baseline.standardDeviation/3) && s.standardDeviation <= baseline.standardDeviation)
+					if ((Math.abs(s.mean - baseline.mean) <= baseline.standardDeviation/2.5) && s.standardDeviation <= baseline.standardDeviation+300)
 						++successes;
 					
 					if (successes > 5) {

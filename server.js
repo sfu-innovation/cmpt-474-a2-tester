@@ -180,6 +180,7 @@ app.get('/job/:job/log', authenticated(), function(req, res) {
 app.post('/job/:job/cancel', authenticated(), function(req, res, next) {
 	res.set('Content-Type', 'application/json');
 	if (req.job.data.user !== req.session.user) return next({ error: 'NOT_AUTHORIZED' });
+	if (req.job._state !== 'inactive' && req.job._state !== 'active') return next({ error: 'INVALID_STATE' })
 	req.job.cancel();
 	res.send(202, { status: 'CANCELED' });
 })
