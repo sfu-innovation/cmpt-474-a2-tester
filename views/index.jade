@@ -1,32 +1,35 @@
 doctype html
 html
 	head
-		title
+		title CMPT 474 | Assignment 2 - Performance Test
 		link(rel="stylesheet", type="text/css", href="/styles/index.css")
 		script(type="text/javascript", src="/scripts/require.js", data-main="/scripts/main")
 			
 
-	body 
-		p Welcome #{user}
-		p Request id's are the funny things you see in [brackets]. Which are mostly helpful to me for debugging. If it says "Status: success" you have full marks for that part! If it goes green you might need to refresh the page before the status gets updated. MAKE SURE YOUR SQS QUEUE IS EMPTY before performing these tests. 
+	body
+		.container
+			p Welcome #{user}
 
-		p The metric calculation done by part 2 just looks to see that you can maintain both the mean and standard deviation of response time when the number of concurrent requests is increased from 1 to 3. MAKE SURE YOU SET YOUR CLOUDWATCH ALARM TO 1 MINUTE to both save yourself the trouble of having to wait and for preventing the benchmark from timing out. This benchmark will send at most 110 images (10 for the baseline, 100 during which performance is measured).
+			p Running jobs:
+			ul.jobs
+				each job in jobs
+					li.job(data-id=job.id, data-state=job.state, data-created-at=job.createdAt)
+						p.title #{job.data.title}
+						a.show-log(href='#') Logs
+						a.cancel(href='#') Cancel
 
-		p URLs you have used to test your system (just so we can see you're not off cheating by plugging in other people's URLs you know):
-		ul
-			each accessed, url in urls
-				li #{url}
 
-		form
-			URL: input(type="text" name="url" placeholder="http://ec2-54-201-121-159.us-west-2.compute.amazonaws.com")
-			div
-				div.part1(data-part="1")
-					Part 1 - Basic Functionality (Status: #{parts['1']})
-					input(type="button" value="Run Part 1" data-test="1")
-					div.logs
-				div.part2(data-part="2")
-					Part 2 - Scaling Behavior (Status: #{parts['2']})
-					input(type="button" value="Run Part 2" data-test="2")
-					div.logs
-			input(type="submit" name="test" value="Run All")
+			p Request id's are the funny things you see in [brackets]. Which are mostly helpful to me for debugging. If it says "Status: success" you have full marks for that part! If it goes green you might need to refresh the page before the status gets updated. MAKE SURE YOUR SQS QUEUE IS EMPTY before performing these tests. 
+
+			p The metric calculation done by part 2 just looks to see that you can maintain both the mean and standard deviation of response time when the number of concurrent requests is increased from 1 to 3. MAKE SURE YOU SET YOUR CLOUDWATCH ALARM TO 1 MINUTE to both save yourself the trouble of having to wait and for preventing the benchmark from timing out. This benchmark will send at most 110 images (10 for the baseline, 100 during which performance is measured).
+
+			form
+				input(type="text" name="url" placeholder="http://ec2-54-201-121-159.us-west-2.compute.amazonaws.com") 
+				input(type="button" value="Run Part 1" data-test="1") 
+				input(type="button" value="Run Part 2" data-test="2") 
+				input(type="submit" name="test" value="Run All")
+				
+			div.log-viewer
+
+				
 			

@@ -1,3 +1,12 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+p {
+	margin-bottom: 0.5em;
+}
+
 body {
 	font-family: 'Helvetica Neue';
 	font-size: 14px;
@@ -11,14 +20,40 @@ input {
 	padding: 8px;
 }
 
-[data-state="pending"] {
+form {
+	background: #fff;
+	border: solid 1px #c0c0c0;
+	padding: 30px;
+}
+
+.container {
+	width: 1200px;
+	margin: 20px auto;
+}
+
+.jobs {
+	width: 600px;
+	float: right;
+	list-style: none;
+}
+
+.job[data-state='cancelled'] {
+	background: #f0f0f0;
+}
+
+
+.job[data-state='inactive'] {
+
+}
+
+.job[data-state='active'] {
 	background: #FFF9A1;
 }
 
-[data-state="complete"] {
-	background: #BBFFA1;
+.job[data-state='failed'] {
+	background: #FFA1A1;
 }
 
-[data-state="error"] {
-	background: #FFA1A1;
+.job[data-state='complete'] {
+	background: #BBFFA1;
 }
