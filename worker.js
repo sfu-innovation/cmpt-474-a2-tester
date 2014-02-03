@@ -21,8 +21,8 @@ var path = __dirname+'/images', images = fs.readdirSync(path).map(function(name)
 });
 
 var agents = {
-	'http:': new http.Agent({ maxSockets: 1000 }),
-	'https:': new https.Agent({ maxSockets: 1000, rejectUnauthorized: false })
+	'http:': new http.Agent({ maxSockets: 256 }),
+	'https:': new https.Agent({ maxSockets: 256, rejectUnauthorized: false })
 }
 
 var engines = {
