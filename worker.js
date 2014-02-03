@@ -183,7 +183,7 @@ function check(name, job, _u, total, minDelay, timeLimit, callback) {
 			if (timeout) return;
 			if (count === 0) { 
 				called = true; 
-				return callback({ name: name, error: 'RETRIES_EXCEEDED', waited: Date.now() - start, count: total - count });
+				return callback({ name: name, error: 'RETRIES_EXCEEDED', waited: Date.now() - start, count: total - count, url: url.format(u) });
 			}
 			//log.write('info', prefix + ' GET');
 			current = engine.request({ 
